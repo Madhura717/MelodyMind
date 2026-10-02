@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Formal dashboard palette */
+  --color-primary: #3B82F6;
+  --color-bg: #F8FAFC;
+  --color-navy: #1E3A8A;
+
+  --color-coral: #FB7185;
+  --color-sky: #38BDF8;
+  --color-yellow: #FBBF24;
+  --color-bubblegum: #FF9FB0;
+  --color-mint: #D1FAE5;
+  --color-peach: #FFEDD5;
+  --color-cream: #FAFAFA;
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-cream text-slate-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/75 backdrop-blur-md border border-white/30 shadow-xl;
+  }
+
+  .glass-pro {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200/60 shadow-xl;
+  }
+
+  .page-bg {
+    @apply bg-[--color-bg];
+  }
+
+  .pro-card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-xl;
+  }
+
+  .pro-title {
+    @apply text-slate-900 font-semibold tracking-tight;
+  }
+
+  .pro-muted {
+    @apply text-slate-600;
+  }
+  
+  .jelly-button {
+    @apply transition-all duration-300 active:scale-90 hover:scale-105 hover:shadow-2xl hover:-translate-y-1;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-coral via-sky to-yellow;
+  }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
+.stardust {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--color-yellow);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}

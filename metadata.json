@@ -1,0 +1,5 @@
+{
+  "name": "MelodyMind",
+  "description": "A music-driven, neuro-inclusive speech therapy app for children.",
+  "requestFramePermissions": ["microphone"]
+}
